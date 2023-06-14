@@ -1,14 +1,15 @@
+const { error } = require('console');
+
 function stringLength(string) {
-  console.assert(
-    string.length >= 1 && string.length <= 10,
-    'String length must be between 1 and 10 characters.',
-  );
+  if (string.length === 0 || string.length > 10) {
+    throw new Error('String length must be between 1 and 10 characters.');
+  }
   return string.length;
 }
 
 // Test cases
 describe('stringLength', () => {
-  it('The correct length of a string', () => {
+  test('should return the correct length of a string', () => {
     // Arrange
     const input = 'Hello';
 
